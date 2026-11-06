@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AMI Institut · Học tiếng Pháp online</title>
+<meta name="description" content="AMI Institut – Học tiếng Pháp online qua Zoom, lớp nhỏ 5–7 người, lộ trình A0 đến B1, mục tiêu thi DELF và TCF. Học thử miễn phí.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23C8102E'/%3E%3Ctext x='29' y='46' font-family='Georgia,serif' font-size='42' font-weight='600' fill='white' text-anchor='middle'%3Ea%3C/text%3E%3Ccircle cx='47' cy='43' r='4.5' fill='%231F2937'/%3E%3C/svg%3E">
+<script>/* Ảnh chưa có thì ẩn đi, khung màu hiện ra thay thế */document.addEventListener("error",function(e){var t=e.target;if(t&&t.tagName==="IMG"&&t.closest(".ph"))t.remove();},true);</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#C8102E; --red-dark:#9E0C24; --red-soft:#FDECEE;
+  --ink:#1F2937; --ink-2:#4B5563; --ink-3:#6B7280;
+  --line:#E7E2DC; --bg:#FFFFFF; --bg-warm:#FAF7F3;
+  --serif:'Fraunces', Georgia, serif; --sans:'Inter', system-ui, -apple-system, sans-serif;
+  --r:14px; --max:1160px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--red);text-decoration:none}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0;letter-spacing:-.01em}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.muted{color:var(--ink-2)}
+
+/* ---------- Logos ---------- */
+.logo-full{display:inline-flex;flex-direction:column;align-items:stretch;gap:3px;color:var(--ink)}
+.logo-full .word{font-family:var(--serif);font-weight:600;font-size:34px;line-height:1;letter-spacing:-1px;text-align:center}
+.dot{position:relative}
+.dot>i{position:absolute;left:-.24em;top:.08em;width:.2em;height:.2em;border-radius:50%;background:var(--red)}
+.logo-full .bar{height:3px;border-radius:2px;background:var(--red)}
+.logo-full .inst{display:flex;justify-content:space-between;padding:0 2px 0 1px;font-size:8.5px;font-weight:600;line-height:1;margin-top:1px}
+.logo-short{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;background:#fff;
+  font-family:var(--serif);font-weight:600;font-size:26px;color:var(--ink);line-height:1;letter-spacing:-.5px}
+.logo-short b{color:var(--red);font-weight:600}
+.logo-short.lg{width:120px;height:120px;border-radius:30px;font-size:68px}
+.logo-short.on-red{background:var(--red);border-color:var(--red);color:#fff}
+.logo-short.on-red b{color:var(--ink)}
+
+/* ---------- Header ---------- */
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
+.brand{display:flex;align-items:center}
+.brand .logo-short{display:none}
+.menu{display:flex;gap:4px;align-items:center}
+.menu a{color:var(--ink);font-weight:500;font-size:15px;padding:8px 14px;border-radius:999px}
+.menu a:hover{background:var(--bg-warm)}
+.menu a.active{color:var(--red);background:var(--red-soft)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:12px 22px;font-weight:600;font-size:15px;transition:.15s}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-dark);color:#fff}
+.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--ink)}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:44px;height:44px;font-size:20px}
+
+/* ---------- Views ---------- */
+.view{display:none}
+.view.on{display:block}
+section{padding:80px 0}
+.sec-head{max-width:640px;margin-bottom:40px}
+.sec-head h2{font-size:40px;margin-top:8px}
+.sec-head p{margin:12px 0 0;color:var(--ink-2);font-size:17px}
+
+/* Hero */
+.hero{padding:72px 0 88px;background:linear-gradient(180deg,#fff 0%,var(--bg-warm) 100%)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.slogan{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--red)}
+.hero h1{font-size:58px;margin:14px 0 20px}
+.hero h1 em{font-style:italic;color:var(--red);font-weight:500}
+.hero p.lead{font-size:18px;color:var(--ink-2);max-width:540px;margin:0 0 30px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-facts{display:flex;gap:32px;margin-top:40px;flex-wrap:wrap}
+.hero-facts div{font-size:14px;color:var(--ink-2)}
+.hero-facts strong{display:block;font-family:var(--serif);font-size:30px;color:var(--ink);font-weight:600}
+.hero-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:32px;box-shadow:0 20px 50px -30px rgba(31,41,55,.35)}
+.hero-card .top{display:flex;align-items:center;gap:18px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.hero-card h3{font-size:22px}
+.class-row{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px dashed var(--line)}
+.class-row:last-of-type{border-bottom:0}
+.class-row .d{font-weight:600}
+.class-row .t{font-size:14px;color:var(--ink-3)}
+.pill{font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--red-soft);color:var(--red)}
+
+/* Why */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.why{padding:28px;border:1px solid var(--line);border-radius:var(--r);background:#fff}
+.why .n{font-family:var(--serif);font-size:15px;color:var(--red);font-weight:600}
+.why h3{font-size:21px;margin:10px 0 8px}
+.why p{margin:0;font-size:15px;color:var(--ink-2)}
+
+/* Courses */
+.warm{background:var(--bg-warm)}
+.course-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.course{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 24px;display:flex;flex-direction:column}
+.course.feat{border:2px solid var(--red);position:relative}
+.course.feat .tag{position:absolute;top:-13px;left:28px;background:var(--red);color:#fff;font-size:12px;font-weight:600;padding:4px 12px;border-radius:999px}
+.course .lvl{font-family:var(--serif);font-size:30px;font-weight:600}
+.course .sub{color:var(--ink-3);font-size:14px;margin-top:2px}
+.course .price{margin:22px 0 4px;font-family:var(--serif);font-size:30px;font-weight:600}
+.course .price small{font-family:var(--sans);font-size:14px;color:var(--ink-3);font-weight:500}
+.course .group{font-size:14px;color:var(--red);font-weight:600}
+.course ul{list-style:none;padding:0;margin:22px 0 26px;flex:1}
+.course li{padding:7px 0 7px 26px;position:relative;font-size:15px;color:var(--ink-2)}
+.course li:before{content:"";position:absolute;left:4px;top:15px;width:8px;height:8px;border-radius:50%;background:var(--red)}
+.note{font-size:13px;color:var(--ink-3);margin-top:20px}
+
+/* Schedule table */
+.sched{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.sched th,.sched td{text-align:left;padding:16px 20px;border-bottom:1px solid var(--line);font-size:15px}
+.sched th{background:var(--bg-warm);font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);font-weight:600}
+.sched tr:last-child td{border-bottom:0}
+
+/* CTA band */
+.band{background:var(--red);color:#fff;border-radius:24px;padding:48px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+.band h2{font-size:34px;color:#fff}
+.band p{margin:8px 0 0;opacity:.9}
+.band .btn{background:#fff;color:var(--red)}
+.band .btn:hover{background:var(--ink);color:#fff}
+
+/* ---------- Library ---------- */
+.lib-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.tabs{display:inline-flex;background:var(--bg-warm);border:1px solid var(--line);border-radius:999px;padding:4px}
+.tabs button{border:0;background:none;padding:9px 20px;border-radius:999px;font-weight:600;color:var(--ink-2);font-size:14px}
+.tabs button.on{background:#fff;color:var(--red);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.unit{background:#fff;border:1px solid var(--line);border-radius:18px;margin-bottom:16px;overflow:hidden}
+.unit-h{display:flex;align-items:center;gap:18px;padding:22px 26px}
+.unit-no{width:52px;height:52px;border-radius:14px;background:var(--red-soft);color:var(--red);font-family:var(--serif);font-weight:600;font-size:22px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.unit.locked .unit-no{background:#F3F4F6;color:var(--ink-3)}
+.unit-h h3{font-size:22px}
+.unit-h .meta{font-size:14px;color:var(--ink-3)}
+.unit-h .right{margin-left:auto}
+.lessons{border-top:1px solid var(--line)}
+.lesson-link{display:flex;align-items:center;gap:16px;padding:16px 26px;color:var(--ink);border-bottom:1px solid var(--line)}
+.lesson-link:last-child{border-bottom:0}
+.lesson-link:hover{background:var(--bg-warm)}
+.lesson-link .code{font-size:13px;font-weight:600;color:var(--red);width:70px;flex:0 0 auto}
+.lesson-link .ttl{font-weight:600}
+.lesson-link .vi{font-size:14px;color:var(--ink-3)}
+.lesson-link .go{margin-left:auto;font-size:13px;color:var(--ink-3)}
+.lock{font-size:13px;color:var(--ink-3);display:inline-flex;align-items:center;gap:6px}
+.free{font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;background:#E8F5EC;color:#166534}
+
+/* ---------- Lesson page ---------- */
+.crumb{font-size:14px;color:var(--ink-3);margin-bottom:18px}
+.crumb a{color:var(--ink-3)} .crumb a:hover{color:var(--red)}
+.lesson-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.lesson-head h1{font-size:44px;margin-top:6px}
+.lesson-head .vi{font-size:17px;color:var(--ink-2);margin-top:6px}
+.ltabs{display:flex;gap:6px;margin-bottom:28px;flex-wrap:wrap}
+.ltabs button{border:1px solid var(--line);background:#fff;padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px;color:var(--ink-2)}
+.ltabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.panel{display:none}.panel.on{display:block}
+.search{width:100%;max-width:340px;padding:11px 16px;border:1px solid var(--line);border-radius:999px;font:inherit;font-size:15px;margin-bottom:16px}
+.search:focus{outline:2px solid var(--red-soft);border-color:var(--red)}
+.vtable{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.vtable th{background:var(--bg-warm);text-align:left;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding:12px 16px;font-weight:600}
+.vtable td{padding:14px 16px;border-top:1px solid var(--line);vertical-align:top;font-size:15px}
+.vtable .fr{font-family:var(--serif);font-size:19px;font-weight:600}
+.vtable .ex{font-style:italic;color:var(--ink-2)}
+.vtable .ex span{display:block;font-style:normal;font-size:13px;color:var(--ink-3)}
+.gtag{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;background:#F3F4F6;color:var(--ink-2);margin-right:4px}
+.gtag.m{background:#E0ECFF;color:#1E40AF}.gtag.f{background:var(--red-soft);color:var(--red)}
+.say{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#fff;display:inline-flex;align-items:center;justify-content:center}
+.say:hover{border-color:var(--red);color:var(--red)}
+.say svg{width:16px;height:16px}
+
+/* Flashcards */
+.fc-wrap{max-width:560px;margin:0 auto;text-align:center}
+.card3d{perspective:1200px;height:300px;margin-bottom:22px;cursor:pointer}
+.card-in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.card3d.flip .card-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px;border:1px solid var(--line);background:#fff;box-shadow:0 20px 40px -28px rgba(31,41,55,.4)}
+.face.back{transform:rotateY(180deg);background:var(--red);color:#fff;border-color:var(--red)}
+.face .big{font-family:var(--serif);font-size:44px;font-weight:600;line-height:1.15}
+.face .hint{font-size:13px;color:var(--ink-3);margin-top:16px}
+.face.back .hint{color:#FFE4E6}
+.face.back .ex{font-style:italic;margin-top:14px;opacity:.95}
+.fc-ctrl{display:flex;justify-content:center;gap:10px;align-items:center;flex-wrap:wrap}
+.fc-count{font-size:14px;color:var(--ink-3);min-width:70px}
+
+/* Quiz */
+.quiz{max-width:640px;margin:0 auto}
+.q-prog{height:6px;background:var(--bg-warm);border-radius:3px;overflow:hidden;margin-bottom:26px}
+.q-prog i{display:block;height:100%;background:var(--red);transition:width .3s}
+.q-word{font-family:var(--serif);font-size:40px;font-weight:600;text-align:center;margin:6px 0 4px}
+.q-ask{text-align:center;color:var(--ink-3);font-size:14px;margin-bottom:24px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.opt{border:1.5px solid var(--line);background:#fff;padding:16px;border-radius:14px;text-align:left;font-size:16px;font-weight:500}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt.ok{border-color:#16A34A;background:#F0FDF4;color:#166534}
+.opt.bad{border-color:var(--red);background:var(--red-soft);color:var(--red)}
+.q-foot{display:flex;justify-content:space-between;align-items:center;margin-top:22px;min-height:46px}
+.result{text-align:center;padding:30px 0}
+.result .score{font-family:var(--serif);font-size:64px;font-weight:600;color:var(--red)}
+
+/* Grammar */
+.gram{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.gbox{background:#fff;border:1px solid var(--line);border-left:4px solid var(--red);border-radius:12px;padding:24px}
+.gbox h3{font-size:20px;margin-bottom:10px}
+.gbox p,.gbox li{font-size:15px;color:var(--ink-2)}
+.gbox ul{padding-left:18px;margin:8px 0 0}
+.gbox .fr{font-family:var(--serif);font-weight:600;color:var(--ink)}
+.dl{display:flex;align-items:center;gap:16px;background:var(--bg-warm);border:1px dashed var(--line);border-radius:14px;padding:20px 24px;margin-top:22px}
+.dl .ic{width:44px;height:52px;border-radius:6px;background:var(--red);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px;flex:0 0 auto}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px}
+.cinfo div{padding:16px 0;border-bottom:1px solid var(--line)}
+.cinfo small{display:block;color:var(--ink-3);font-size:13px}
+.cinfo strong{font-size:17px}
+form{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px}
+label{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
+input,select,textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:15px;margin-bottom:18px;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--red-soft);border-color:var(--red)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ok-msg{display:none;background:#F0FDF4;border:1px solid #BBF7D0;color:#166534;padding:14px 16px;border-radius:10px;font-size:14px;margin-top:14px}
+
+/* Footer */
+footer{background:var(--ink);color:#D1D5DB;padding:56px 0 30px;margin-top:40px}
+.f-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px}
+footer .logo-full{color:#fff}
+footer h4{color:#fff;font-size:14px;margin:0 0 14px;font-weight:600}
+footer a{color:#D1D5DB;display:block;font-size:14px;padding:4px 0}
+footer a:hover{color:#fff}
+.f-bot{border-top:1px solid #374151;margin-top:40px;padding-top:20px;font-size:13px;color:#9CA3AF;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.f-slogan{font-family:var(--serif);font-style:italic;color:#FCA5A5;margin-top:16px}
+
+/* Image slots */
+.ph{position:relative;overflow:hidden;background:var(--red-soft);display:flex;align-items:center;justify-content:center;text-align:center}
+.ph::before{content:attr(data-label);font-size:13px;font-weight:600;color:var(--red);opacity:.75;padding:12px;line-height:1.4;white-space:pre-line}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hero-media{position:relative}
+.hero-photo{aspect-ratio:4/3;border-radius:24px}
+.hero-media .hero-card{position:relative;margin:-90px 0 0 40px}
+.course .ph{aspect-ratio:16/9;border-radius:12px;margin:-8px -6px 20px}
+.teacher{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.teacher-photo{aspect-ratio:4/5;border-radius:24px}
+.teacher h2{font-size:40px;margin:8px 0 16px}
+.teacher p{color:var(--ink-2);font-size:17px;margin:0 0 14px}
+.creds{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.creds span{font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:#fff}
+.zoom-photo{aspect-ratio:21/9;border-radius:20px;margin-top:28px}
+.unit-cover{width:88px;height:66px;border-radius:12px;flex:0 0 auto}
+.unit-cover::before{font-family:var(--serif);font-size:24px;opacity:1}
+.unit.locked .unit-cover{background:#F3F4F6}
+.unit.locked .unit-cover::before{color:var(--ink-3)}
+
+/* Responsive */
+@media (max-width:960px){
+  .hero-grid,.contact-grid,.teacher{grid-template-columns:1fr}
+  .hero-media .hero-card{margin:-60px 16px 0}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .course-grid{grid-template-columns:1fr 1fr}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:44px}
+}
+@media (max-width:760px){
+  .brand .logo-full{display:none}
+  .brand .logo-short{display:inline-flex}
+  .burger{display:inline-flex;align-items:center;justify-content:center}
+  .menu{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:12px 16px 20px;border-bottom:1px solid var(--line)}
+  .menu.open{display:flex}
+  .nav .btn-red.top{display:none}
+  section{padding:56px 0}
+  .sec-head h2{font-size:32px}
+  .hero h1{font-size:36px}
+  .why-grid{grid-template-columns:1fr}
+  .course-grid{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
+  .row2{grid-template-columns:1fr}
+  .vtable .hide-m{display:none}
+  .lesson-head h1{font-size:34px}
+  .band{padding:32px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#home" class="brand" aria-label="AMI Institut — Trang chủ">
+      <span class="logo-full" aria-hidden="true">
+        <span class="word">amı<span class="dot"><i></i></span></span>
+        <span class="bar"></span>
+        <span class="inst"><span>I</span><span>N</span><span>S</span><span>T</span><span>I</span><span>T</span><span>U</span><span>T</span></span>
+      </span>
+      <span class="logo-short" aria-hidden="true">a<b>.</b></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#home" data-nav="home">Trang chủ</a>
+      <a href="#khoa-hoc" data-nav="khoa-hoc">Khóa học &amp; lịch</a>
+      <a href="#tai-lieu" data-nav="tai-lieu">Tài liệu</a>
+      <a href="#lien-he" data-nav="lien-he">Liên hệ</a>
+    </nav>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a href="#lien-he" class="btn btn-red top">Học thử miễn phí</a>
+      <button class="burger" id="burger" aria-label="Mở menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= HOME ================= -->
+<div class="view" id="v-home">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="slogan">Apprendre Mieux Ici</div>
+        <h1>Học tiếng Pháp online,<br>lớp nhỏ <em>5–7 người</em></h1>
+        <p class="lead">Lộ trình rõ ràng từ con số 0 đến B1, hướng tới các kỳ thi DELF và TCF. Mỗi buổi học đều có tài liệu và từ vựng riêng để bạn ôn lại bất cứ lúc nào.</p>
+        <div class="hero-cta">
+          <a href="#lien-he" class="btn btn-red">Đăng ký học thử miễn phí →</a>
+          <a href="#tai-lieu" class="btn btn-ghost">Xem tài liệu mẫu</a>
+        </div>
+        <div class="hero-facts">
+          <div><strong>5–7</strong>học viên / lớp</div>
+          <div><strong>DELF · TCF</strong>mục tiêu đầu ra</div>
+          <div><strong>2 giờ</strong>mỗi buổi, buổi tối</div>
+        </div>
+      </div>
+      <div class="hero-media">
+      <div class="ph hero-photo" data-label="images/hero.jpg
+Ảnh lớn trang chủ"><img src="images/hero.jpg" alt="Lớp học tiếng Pháp online qua Zoom tại AMI Institut"></div>
+      <div class="hero-card">
+        <div class="top">
+          <span class="logo-short lg on-red" style="width:72px;height:72px;border-radius:20px;font-size:42px" aria-hidden="true">a<b>.</b></span>
+          <div>
+            <div class="eyebrow">Khai giảng tháng 12/2026</div>
+            <h3>Lớp A1 cho người mới bắt đầu</h3>
+          </div>
+        </div>
+        <div class="class-row"><div><div class="d">Thứ 2 · 4 · 6</div><div class="t">19:30 – 21:30 · Online qua Zoom</div></div><span class="pill">Đang nhận đăng ký</span></div>
+        <div class="class-row"><div><div class="d">Thứ 3 · 5 · 7</div><div class="t">19:30 – 21:30 · Online qua Zoom</div></div><span class="pill">Đang nhận đăng ký</span></div>
+        <a href="#lien-he" class="btn btn-red" style="width:100%;justify-content:center;margin-top:18px">Giữ chỗ ngay</a>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Vì sao chọn AMI</div>
+        <h2>Học ít người hơn, tiến bộ rõ hơn</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why"><div class="n">01</div><h3>Lớp nhỏ</h3><p>Chỉ 5–7 bạn mỗi lớp, ai cũng được nói và được sửa lỗi trong từng buổi.</p></div>
+        <div class="why"><div class="n">02</div><h3>Thi DELF &amp; TCF</h3><p>Lộ trình bám theo khung A1, A2, B1 để bạn sẵn sàng cho các kỳ thi DELF và TCF.</p></div>
+        <div class="why"><div class="n">03</div><h3>Tài liệu theo bài</h3><p>Từ vựng, flashcard, bài tập cho từng buổi học, mở trên điện thoại là ôn được.</p></div>
+        <div class="why"><div class="n">04</div><h3>Online qua Zoom</h3><p>Buổi tối 19:30–21:30, phù hợp người đi làm và sinh viên, học ở đâu cũng được.</p></div>
+      </div>
+      <div class="ph zoom-photo" data-label="images/lop-hoc-zoom.jpg
+Ảnh chụp một buổi học qua Zoom"><img src="images/lop-hoc-zoom.jpg" alt="Một buổi học tiếng Pháp qua Zoom tại AMI Institut"></div>
+    </div>
+  </section>
+
+  <section class="warm">
+    <div class="wrap teacher">
+      <div class="ph teacher-photo" data-label="images/giao-vien.jpg
+Ảnh chân dung giáo viên"><img src="images/giao-vien.jpg" alt="Giáo viên Tuấn Minh, AMI Institut"></div>
+      <div>
+        <div class="eyebrow">Giáo viên</div>
+        <h2>Học cùng người từng học và sống ở Pháp</h2>
+        <p>[Giới thiệu ngắn về bạn: học Thạc sĩ tại Đại học Lyon 2, kinh nghiệm dạy và vận hành lớp tiếng Pháp, phong cách dạy.]</p>
+        <p>[Vì sao bạn mở AMI và điều bạn muốn học viên đạt được.]</p>
+        <div class="creds"><span>🎓 Thạc sĩ Đại học Lyon 2</span><span>🇫🇷 Từng sống tại Pháp</span><span>📚 Luyện thi DELF &amp; TCF</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Khóa học</div>
+        <h2>Chọn lộ trình phù hợp với bạn</h2>
+        <p>Đăng ký theo nhóm từ 2 người trở lên được giảm học phí.</p>
+      </div>
+      <div class="course-grid" id="home-courses"></div>
+      <div style="text-align:center;margin-top:30px"><a href="#khoa-hoc" class="btn btn-ghost">Xem chi tiết khóa học &amp; lịch học →</a></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="band">
+        <div><h2>Học thử 1 buổi miễn phí</h2><p>Gặp giáo viên, làm quen với lớp, rồi mới quyết định.</p></div>
+        <a href="#lien-he" class="btn">Đăng ký học thử →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= COURSES ================= -->
+<div class="view" id="v-khoa-hoc">
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Khóa học &amp; học phí</div>
+        <h2>Lộ trình từ A0 đến B1</h2>
+        <p>Tất cả các lớp học online qua Zoom, mỗi buổi 2 giờ, tối đa 7 học viên. Mục tiêu của mọi khóa học là thi đỗ DELF và TCF.</p>
+      </div>
+      <div class="course-grid" id="all-courses"></div>
+      <p class="note">* Học phí nhóm áp dụng khi từ 2 người trở lên đăng ký cùng lúc. Khóa B1 chỉ nhận đăng ký trọn khóa.</p>
+    </div>
+  </section>
+  <section class="warm">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Lịch khai giảng</div>
+        <h2>Các lớp sắp mở</h2>
+      </div>
+      <table class="sched">
+        <thead><tr><th>Lớp</th><th>Trình độ</th><th>Lịch học</th><th>Giờ</th><th>Hình thức</th><th>Khai giảng</th><th></th></tr></thead>
+        <tbody>
+          <tr><td><strong>FR01</strong></td><td>A1</td><td>Thứ 2 · 4 · 6</td><td>19:30–21:30</td><td>Zoom</td><td>Tháng 12/2026</td><td><a href="#lien-he">Đăng ký →</a></td></tr>
+          <tr><td><strong>FR02</strong></td><td>A1</td><td>Thứ 3 · 5 · 7</td><td>19:30–21:30</td><td>Zoom</td><td>Tháng 12/2026</td><td><a href="#lien-he">Đăng ký →</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<!-- ================= LIBRARY ================= -->
+<div class="view" id="v-tai-lieu">
+  <section>
+    <div class="wrap">
+      <div class="lib-top">
+        <div class="sec-head" style="margin:0">
+          <div class="eyebrow">Tài liệu học tập</div>
+          <h2>Từ vựng &amp; bài tập theo từng bài</h2>
+          <p>Unité 1 mở miễn phí cho tất cả mọi người. Các bài sau dành cho học viên AMI.</p>
+        </div>
+        <div class="tabs" id="lvl-tabs"></div>
+      </div>
+      <div id="units"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= LESSON ================= -->
+<div class="view" id="v-lesson">
+  <section style="padding-top:44px">
+    <div class="wrap" id="lesson-root"></div>
+  </section>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div class="view" id="v-lien-he">
+  <section>
+    <div class="wrap contact-grid">
+      <div>
+        <div class="sec-head">
+          <div class="eyebrow">Liên hệ</div>
+          <h2>Đăng ký học thử miễn phí</h2>
+          <p>Để lại thông tin, AMI sẽ liên hệ lại trong vòng 24 giờ để xếp lịch học thử cho bạn.</p>
+        </div>
+        <div class="cinfo">
+          <div><small>Zalo / Điện thoại</small><strong>[Số điện thoại]</strong></div>
+          <div><small>Email</small><strong>[Email của AMI]</strong></div>
+          <div><small>Facebook</small><strong>[Fanpage AMI Institut]</strong></div>
+          <div><small>Hình thức học</small><strong>Online qua Zoom</strong></div>
+        </div>
+      </div>
+      <form id="form">
+        <div class="row2">
+          <div><label for="f-name">Họ và tên</label><input id="f-name" required placeholder="Nguyễn Văn A"></div>
+          <div><label for="f-phone">Số điện thoại / Zalo</label><input id="f-phone" required placeholder="09xx xxx xxx"></div>
+        </div>
+        <label for="f-course">Khóa học quan tâm</label>
+        <select id="f-course">
+          <option>A0–A2 trọn khóa</option><option>A1</option><option>A2</option><option>B1 (có ôn DELF B1)</option><option>Luyện thi TCF</option><option>Chưa biết, cần tư vấn</option>
+        </select>
+        <label for="f-time">Lịch học mong muốn</label>
+        <select id="f-time"><option>Thứ 2 · 4 · 6, 19:30</option><option>Thứ 3 · 5 · 7, 19:30</option><option>Linh hoạt</option></select>
+        <label for="f-note">Bạn học tiếng Pháp để làm gì?</label>
+        <textarea id="f-note" rows="3" placeholder="Du học, thi DELF, công việc, sở thích…"></textarea>
+        <button class="btn btn-red" type="submit" style="width:100%;justify-content:center">Gửi đăng ký</button>
+        <div class="ok-msg" id="ok-msg">Bản mẫu: form chưa gửi đi đâu. Khi đưa lên web thật, thông tin sẽ được lưu vào Google Sheet của AMI và báo về Zalo/email.</div>
+      </form>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <span class="logo-full" aria-label="AMI Institut">
+          <span class="word">amı<span class="dot"><i></i></span></span>
+          <span class="bar"></span>
+          <span class="inst"><span>I</span><span>N</span><span>S</span><span>T</span><span>I</span><span>T</span><span>U</span><span>T</span></span>
+        </span>
+        <div class="f-slogan">Apprendre Mieux Ici</div>
+      </div>
+      <div><h4>Khóa học</h4><a href="#khoa-hoc">A0–A2 trọn khóa</a><a href="#khoa-hoc">A1</a><a href="#khoa-hoc">A2</a><a href="#khoa-hoc">B1</a><a href="#khoa-hoc">Mục tiêu DELF &amp; TCF</a></div>
+      <div><h4>Học tập</h4><a href="#tai-lieu">Tài liệu theo bài</a><a href="#khoa-hoc">Lịch khai giảng</a></div>
+      <div><h4>Liên hệ</h4><a href="#lien-he">Đăng ký học thử</a><a href="#lien-he">Zalo · Facebook</a></div>
+    </div>
+    <div class="f-bot"><span>© 2026 AMI Institut</span><span>Học tiếng Pháp online qua Zoom · lớp nhỏ · DELF &amp; TCF</span></div>
+  </div>
+</footer>
+
+<script>
+/* ============ DATA (sau này đọc từ Google Sheet) ============ */
+const COURSES = [
+  {img:'khoa-a0-a2', lvl:'A0 – A2', sub:'Trọn khóa · từ con số 0', price:'12.000.000đ', group:'Nhóm 2+: 10.000.000đ/người', feat:true,
+   items:['60 buổi × 2 giờ','Từ bảng chữ cái đến giao tiếp hằng ngày','Mục tiêu: thi DELF A1, A2 và TCF','Tài liệu, từ vựng theo từng bài']},
+  {img:'khoa-a1', lvl:'A1', sub:'Sơ cấp · cho người mới bắt đầu', price:'6.000.000đ', group:'Nhóm 2+: 5.500.000đ/người',
+   items:['Bắt đầu từ con số 0','Chào hỏi, giới thiệu, giao tiếp cơ bản','Mục tiêu: thi DELF A1, TCF','Tài liệu, từ vựng theo từng bài']},
+  {img:'khoa-a2', lvl:'A2', sub:'Sơ cấp · đã học xong A1', price:'6.000.000đ', group:'Nhóm 2+: 5.500.000đ/người',
+   items:['Dành cho người đã có nền tảng A1','Kể chuyện, mô tả, giao tiếp tình huống','Mục tiêu: thi DELF A2, TCF','Tài liệu, từ vựng theo từng bài']},
+  {img:'khoa-b1', lvl:'B1', sub:'Trung cấp · có ôn thi', price:'15.000.000đ', group:'Chỉ nhận đăng ký trọn khóa',
+   items:['50 buổi × 2 giờ','35 buổi chính + 15 buổi ôn DELF B1','Mục tiêu: thi DELF B1, TCF','Đề thi thử có chấm điểm']}
+];
+
+// Cấu trúc giống 1 Google Sheet: Khóa | Unité | Leçon | Từ | Loại | Giống | Nghĩa | Ví dụ | Dịch ví dụ
+const LIB = {
+  A1: [
+    {u:1, title:'Bonjour !', vi:'Chào hỏi và giới thiệu', free:true, lessons:[
+      {l:1, title:'Saluer', vi:'Chào hỏi', words:[
+        ['bonjour','loc.','','xin chào (ban ngày)','Bonjour, madame !','Chào bà!'],
+        ['bonsoir','loc.','','chào buổi tối','Bonsoir, tout le monde.','Chào buổi tối mọi người.'],
+        ['salut','loc.','','chào (thân mật)','Salut, Léa !','Chào Léa!'],
+        ['au revoir','loc.','','tạm biệt','Au revoir et à demain !','Tạm biệt, hẹn mai gặp!'],
+        ['à bientôt','loc.','','hẹn sớm gặp lại','Merci, à bientôt !','Cảm ơn, hẹn gặp lại nhé!'],
+        ['merci','loc.','','cảm ơn','Merci beaucoup !','Cảm ơn nhiều!'],
+        ['s’il vous plaît','loc.','','làm ơn (lịch sự)','Un café, s’il vous plaît.','Cho tôi một cà phê.'],
+        ['madame','n.','f','bà, cô (lịch sự)','Bonjour, madame Martin.','Chào bà Martin.'],
+        ['monsieur','n.','m','ông, anh (lịch sự)','Merci, monsieur.','Cảm ơn ông.'],
+        ['Comment ça va ?','loc.','','Bạn khỏe không?','Salut Hugo, comment ça va ?','Chào Hugo, khỏe không?'],
+        ['ça va bien','loc.','','tôi khỏe','Ça va bien, merci !','Mình khỏe, cảm ơn!']
+      ], grammar:[
+        {h:'Tu hay vous?', p:'Tiếng Pháp có hai cách xưng "bạn":', li:['<span class="fr">tu</span>: với bạn bè, người thân, trẻ em','<span class="fr">vous</span>: với người lạ, người lớn tuổi, trong công việc; cũng dùng cho số nhiều']},
+        {h:'Chào theo thời điểm', p:'Chọn lời chào phù hợp:', li:['<span class="fr">Bonjour</span>: từ sáng đến chiều','<span class="fr">Bonsoir</span>: từ khoảng 18h','<span class="fr">Salut</span>: thân mật, dùng cả khi gặp và khi chào tạm biệt']}
+      ]},
+      {l:2, title:'Se présenter', vi:'Giới thiệu bản thân', words:[
+        ['s’appeler','v.','','tên là','Je m’appelle Minh.','Tôi tên là Minh.'],
+        ['le prénom','n.','m','tên (gọi)','Quel est ton prénom ?','Tên bạn là gì?'],
+        ['le nom','n.','m','họ, tên','Mon nom est Nguyen.','Họ tôi là Nguyễn.'],
+        ['être','v.','','là, thì','Je suis étudiant.','Tôi là sinh viên.'],
+        ['habiter','v.','','sống, ở','J’habite à Hanoï.','Tôi sống ở Hà Nội.'],
+        ['parler','v.','','nói','Je parle vietnamien.','Tôi nói tiếng Việt.'],
+        ['vietnamien','adj.','m','người Việt (nam)','Il est vietnamien.','Anh ấy là người Việt.'],
+        ['vietnamienne','adj.','f','người Việt (nữ)','Elle est vietnamienne.','Cô ấy là người Việt.'],
+        ['français','adj.','m','người Pháp (nam)','Paul est français.','Paul là người Pháp.'],
+        ['française','adj.','f','người Pháp (nữ)','Léa est française.','Léa là người Pháp.'],
+        ['enchanté(e)','adj.','','rất vui được gặp','Enchantée, Thomas !','Rất vui được gặp anh, Thomas!']
+      ], grammar:[
+        {h:'Động từ être (thì hiện tại)', p:'Động từ quan trọng nhất, cần thuộc lòng:', li:['<span class="fr">je suis · tu es · il/elle est</span>','<span class="fr">nous sommes · vous êtes · ils/elles sont</span>']},
+        {h:'Quốc tịch: giống đực và giống cái', p:'Thường thêm <span class="fr">-e</span> cho giống cái:', li:['<span class="fr">français → française</span>','<span class="fr">vietnamien → vietnamienne</span> (gấp đôi n)','<span class="fr">suisse → suisse</span> (đã có -e, giữ nguyên)']}
+      ]},
+      {l:3, title:'Les nombres de 0 à 20', vi:'Số đếm từ 0 đến 20', words:[
+        ['zéro','num.','','0','Zéro, un, deux…',''],['un / une','num.','','1','J’ai un frère.','Tôi có một anh trai.'],
+        ['deux','num.','','2','Deux cafés, s’il vous plaît.','Cho hai cà phê.'],['trois','num.','','3','',''],
+        ['quatre','num.','','4','',''],['cinq','num.','','5','',''],['six','num.','','6','',''],['sept','num.','','7','',''],
+        ['huit','num.','','8','',''],['neuf','num.','','9','',''],['dix','num.','','10','J’ai dix ans.','Tôi 10 tuổi.'],
+        ['onze','num.','','11','',''],['douze','num.','','12','',''],['quinze','num.','','15','',''],['vingt','num.','','20','J’ai vingt ans.','Tôi 20 tuổi.']
+      ], grammar:[
+        {h:'Hỏi tuổi', p:'Người Pháp dùng động từ <span class="fr">avoir</span> (có) để nói tuổi:', li:['<span class="fr">Tu as quel âge ?</span> Bạn bao nhiêu tuổi?','<span class="fr">J’ai vingt ans.</span> Tôi 20 tuổi (không dùng être!)']}
+      ]}
+    ]},
+    {u:2, title:'Ma vie', vi:'Gia đình và cuộc sống hằng ngày', lessons:[{l:1,title:'La famille',vi:'Gia đình'},{l:2,title:'Les loisirs',vi:'Sở thích'},{l:3,title:'Ma journée',vi:'Một ngày của tôi'}]},
+    {u:3, title:'En ville', vi:'Trong thành phố', lessons:[{l:1,title:'Les lieux',vi:'Địa điểm'},{l:2,title:'Demander son chemin',vi:'Hỏi đường'},{l:3,title:'Les transports',vi:'Phương tiện'}]}
+  ],
+  A2: [
+    {u:1, title:'Souvenirs', vi:'Kể chuyện quá khứ', lessons:[{l:1,title:'Le passé composé',vi:'Thì quá khứ kép'},{l:2,title:'Raconter un voyage',vi:'Kể về chuyến đi'}]},
+    {u:2, title:'Au travail', vi:'Công việc', lessons:[{l:1,title:'Les métiers',vi:'Nghề nghiệp'},{l:2,title:'Un entretien',vi:'Phỏng vấn'}]}
+  ],
+  B1: [
+    {u:1, title:'Donner son avis', vi:'Nêu quan điểm', lessons:[{l:1,title:'Exprimer son opinion',vi:'Bày tỏ ý kiến'},{l:2,title:'Argumenter',vi:'Lập luận'}]},
+    {u:2, title:'Préparer le DELF B1', vi:'Ôn thi DELF B1', lessons:[{l:1,title:'Production écrite',vi:'Viết'},{l:2,title:'Production orale',vi:'Nói'}]}
+  ]
+};
+
+/* ============ HELPERS ============ */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>';
+let frVoice = null;
+function loadVoice(){ try{ const v = speechSynthesis.getVoices(); frVoice = v.find(x=>/^fr(-|_)FR/i.test(x.lang)) || v.find(x=>/^fr/i.test(x.lang)) || null; }catch(e){} }
+try{ loadVoice(); speechSynthesis.onvoiceschanged = loadVoice; }catch(e){}
+function say(text){
+  try{
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text.replace(/\(e\)/,'')); u.lang='fr-FR'; u.rate=.9;
+    if(frVoice) u.voice = frVoice; speechSynthesis.speak(u);
+  }catch(e){}
+}
+const genderTag = (t,g) => `<span class="gtag">${esc(t)}</span>${g==='m'?'<span class="gtag m">m</span>':g==='f'?'<span class="gtag f">f</span>':''}`;
+
+/* ============ COURSES ============ */
+function courseCard(c){
+  return `<div class="course ${c.feat?'feat':''}">${c.feat?'<span class="tag">Được chọn nhiều nhất</span>':''}
+    <div class="ph" data-label="images/${c.img}.jpg"><img src="images/${c.img}.jpg" alt="Khóa học tiếng Pháp ${c.lvl}"></div>
+    <div class="lvl">${c.lvl}</div><div class="sub">${c.sub}</div>
+    <div class="price">${c.price}</div><div class="group">${c.group}</div>
+    <ul>${c.items.map(i=>`<li>${i}</li>`).join('')}</ul>
+    <a href="#lien-he" class="btn ${c.feat?'btn-red':'btn-ghost'}" style="justify-content:center">Đăng ký tư vấn</a></div>`;
+}
+$('#home-courses').innerHTML = COURSES.map(courseCard).join('');
+$('#all-courses').innerHTML = COURSES.map(courseCard).join('');
+
+/* ============ LIBRARY ============ */
+let curLvl = 'A1';
+function renderLib(){
+  $('#lvl-tabs').innerHTML = Object.keys(LIB).map(k=>`<button class="${k===curLvl?'on':''}" data-lvl="${k}">${k}</button>`).join('');
+  $('#units').innerHTML = LIB[curLvl].map(u=>{
+    const locked = !u.free;
+    return `<div class="unit ${locked?'locked':''}">
+      <div class="unit-h"><div class="ph unit-cover" data-label="${u.u}"><img src="images/${curLvl.toLowerCase()}-unite-${u.u}.jpg" alt="Ảnh bìa ${curLvl} Unité ${u.u}"></div>
+        <div><div class="meta">Unité ${u.u}</div><h3>${esc(u.title)}</h3><div class="meta">${esc(u.vi)}</div></div>
+        <div class="right">${locked?'<span class="lock">🔒 Dành cho học viên</span>':'<span class="free">Miễn phí</span>'}</div></div>
+      <div class="lessons">${u.lessons.map(l=> locked
+        ? `<div class="lesson-link" style="cursor:default;opacity:.6"><span class="code">Leçon ${l.l}</span><div><div class="ttl">${esc(l.title)}</div><div class="vi">${esc(l.vi)}</div></div><span class="go">🔒</span></div>`
+        : `<a class="lesson-link" href="#${curLvl.toLowerCase()}-u${u.u}-l${l.l}"><span class="code">Leçon ${l.l}</span><div><div class="ttl">${esc(l.title)}</div><div class="vi">${esc(l.vi)} · ${l.words.length} từ</div></div><span class="go">Học bài →</span></a>`
+      ).join('')}</div></div>`;
+  }).join('');
+}
+$('#lvl-tabs').addEventListener('click', e=>{ const b=e.target.closest('button'); if(!b) return; curLvl=b.dataset.lvl; renderLib(); });
+
+/* ============ LESSON ============ */
+let LS = null; // lesson state
+function findLesson(id){
+  const m = id.match(/^(a1|a2|b1)-u(\d+)-l(\d+)$/); if(!m) return null;
+  const lvl = m[1].toUpperCase(), unit = (LIB[lvl]||[]).find(x=>x.u==m[2]); if(!unit || !unit.free) return null;
+  const les = unit.lessons.find(x=>x.l==m[3]); if(!les || !les.words) return null;
+  return {lvl, unit, les, id};
+}
+function renderLesson(info){
+  const {lvl, unit, les} = info;
+  const words = les.words.map(w=>({fr:w[0],type:w[1],g:w[2],vi:w[3],ex:w[4],exvi:w[5]}));
+  LS = {words, fcOrder:words.map((_,i)=>i), fcIdx:0, q:null};
+  const idx = unit.lessons.indexOf(les), prev = unit.lessons[idx-1], next = unit.lessons[idx+1];
+  const link = l => `#${lvl.toLowerCase()}-u${unit.u}-l${l.l}`;
+  $('#lesson-root').innerHTML = `
+    <div class="crumb"><a href="#tai-lieu">Tài liệu</a> / ${lvl} / Unité ${unit.u} · ${esc(unit.title)}</div>
+    <div class="lesson-head">
+      <div><div class="eyebrow">${lvl} · Unité ${unit.u} · Leçon ${les.l}</div><h1>${esc(les.title)}</h1><div class="vi">${esc(les.vi)} · ${words.length} từ vựng</div></div>
+      <div style="display:flex;gap:8px">${prev?`<a class="btn btn-ghost" href="${link(prev)}">← Leçon ${prev.l}</a>`:''}${next&&next.words?`<a class="btn btn-ghost" href="${link(next)}">Leçon ${next.l} →</a>`:''}</div>
+    </div>
+    <div class="ltabs" id="ltabs">
+      <button class="on" data-p="vocab">📖 Từ vựng</button><button data-p="fc">🃏 Flashcard</button><button data-p="quiz">✅ Kiểm tra nhanh</button><button data-p="gram">✏️ Ngữ pháp &amp; tài liệu</button>
+    </div>
+    <div class="panel on" id="p-vocab">
+      <input class="search" id="vsearch" placeholder="Tìm từ tiếng Pháp hoặc tiếng Việt…">
+      <table class="vtable"><thead><tr><th style="width:56px"></th><th>Tiếng Pháp</th><th class="hide-m">Loại</th><th>Nghĩa</th><th class="hide-m">Ví dụ</th></tr></thead><tbody id="vbody"></tbody></table>
+    </div>
+    <div class="panel" id="p-fc"></div>
+    <div class="panel" id="p-quiz"></div>
+    <div class="panel" id="p-gram">
+      <div class="gram">${(les.grammar||[]).map(g=>`<div class="gbox"><h3>${g.h}</h3><p>${g.p}</p><ul>${g.li.map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('')}</div>
+      <div class="dl"><div class="ic">PDF</div><div><strong>Bài tập về nhà · Leçon ${les.l}</strong><div class="muted" style="font-size:14px">Bản mẫu: file PDF do AMI soạn sẽ được gắn ở đây.</div></div></div>
+    </div>`;
+  renderVocab('');
+  renderFC(); newQuiz();
+  $('#vsearch').addEventListener('input', e=>renderVocab(e.target.value));
+  $('#ltabs').addEventListener('click', e=>{
+    const b=e.target.closest('button'); if(!b) return;
+    document.querySelectorAll('#ltabs button').forEach(x=>x.classList.toggle('on',x===b));
+    document.querySelectorAll('#lesson-root .panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+b.dataset.p));
+  });
+}
+function renderVocab(q){
+  q = q.trim().toLowerCase();
+  const rows = LS.words.map((w,i)=>({w,i})).filter(({w})=>!q || w.fr.toLowerCase().includes(q) || w.vi.toLowerCase().includes(q));
+  $('#vbody').innerHTML = rows.length ? rows.map(({w,i})=>`<tr>
+    <td><button class="say" data-say="${i}" aria-label="Nghe ${esc(w.fr)}">${SPK}</button></td>
+    <td class="fr">${esc(w.fr)}</td><td class="hide-m">${genderTag(w.type,w.g)}</td><td>${esc(w.vi)}</td>
+    <td class="hide-m ex">${w.ex?`${esc(w.ex)}<span>${esc(w.exvi)}</span>`:''}</td></tr>`).join('')
+    : `<tr><td colspan="5" class="muted">Không tìm thấy từ nào.</td></tr>`;
+}
+document.addEventListener('click', e=>{ const b=e.target.closest('[data-say]'); if(b && LS){ e.stopPropagation(); say(LS.words[+b.dataset.say].fr); } });
+
+/* Flashcards */
+function renderFC(){
+  const w = LS.words[LS.fcOrder[LS.fcIdx]];
+  $('#p-fc').innerHTML = `<div class="fc-wrap">
+    <div class="card3d" id="card"><div class="card-in">
+      <div class="face"><div class="big">${esc(w.fr)}</div><div class="hint">Bấm vào thẻ để lật</div></div>
+      <div class="face back"><div class="big" style="font-size:34px">${esc(w.vi)}</div>${w.ex?`<div class="ex">${esc(w.ex)}</div>`:''}<div class="hint">${esc(w.type)}${w.g?' · '+(w.g==='m'?'giống đực':'giống cái'):''}</div></div>
+    </div></div>
+    <div class="fc-ctrl">
+      <button class="btn btn-ghost" id="fc-prev">←</button>
+      <span class="fc-count">${LS.fcIdx+1} / ${LS.words.length}</span>
+      <button class="btn btn-ghost" id="fc-next">→</button>
+      <button class="btn btn-ghost" id="fc-say">🔊 Nghe</button>
+      <button class="btn btn-ghost" id="fc-shuf">🔀 Xáo trộn</button>
+    </div></div>`;
+  $('#card').onclick = ()=>$('#card').classList.toggle('flip');
+  $('#fc-prev').onclick = ()=>{ LS.fcIdx=(LS.fcIdx-1+LS.words.length)%LS.words.length; renderFC(); };
+  $('#fc-next').onclick = ()=>{ LS.fcIdx=(LS.fcIdx+1)%LS.words.length; renderFC(); };
+  $('#fc-say').onclick = ()=>say(w.fr);
+  $('#fc-shuf').onclick = ()=>{ LS.fcOrder=shuffle(LS.fcOrder.slice()); LS.fcIdx=0; renderFC(); };
+}
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+
+/* Quiz */
+function newQuiz(){
+  const n = Math.min(8, LS.words.length);
+  LS.q = {items: shuffle(LS.words.map((_,i)=>i)).slice(0,n), k:0, score:0};
+  renderQ();
+}
+function renderQ(){
+  const Q = LS.q, total = Q.items.length;
+  if(Q.k>=total){
+    $('#p-quiz').innerHTML = `<div class="quiz result"><div class="eyebrow">Kết quả</div><div class="score">${Q.score}/${total}</div>
+      <p class="muted">${Q.score===total?'Parfait ! Bạn đã thuộc hết bài này.':Q.score>=total*.6?'Très bien ! Ôn thêm flashcard để nhớ chắc hơn.':'Courage ! Xem lại bảng từ vựng rồi thử lại nhé.'}</p>
+      <button class="btn btn-red" id="q-again">Làm lại</button></div>`;
+    $('#q-again').onclick = newQuiz; return;
+  }
+  const w = LS.words[Q.items[Q.k]];
+  const others = shuffle(LS.words.filter(x=>x!==w)).slice(0,3);
+  const opts = shuffle([w,...others]);
+  $('#p-quiz').innerHTML = `<div class="quiz">
+    <div class="q-prog"><i style="width:${Q.k/total*100}%"></i></div>
+    <div class="q-ask">Câu ${Q.k+1}/${total} · Chọn nghĩa đúng</div>
+    <div class="q-word">${esc(w.fr)} <button class="say" id="q-say" aria-label="Nghe">${SPK}</button></div>
+    <div class="q-ask"></div>
+    <div class="opts">${opts.map(o=>`<button class="opt" data-ok="${o===w}">${esc(o.vi)}</button>`).join('')}</div>
+    <div class="q-foot"><span class="muted" id="q-msg"></span><button class="btn btn-red" id="q-next" style="visibility:hidden">Câu tiếp →</button></div></div>`;
+  $('#q-say').onclick = ()=>say(w.fr);
+  document.querySelectorAll('#p-quiz .opt').forEach(b=>b.onclick=()=>{
+    const ok = b.dataset.ok==='true'; if(ok) Q.score++;
+    document.querySelectorAll('#p-quiz .opt').forEach(x=>{ x.disabled=true; if(x.dataset.ok==='true') x.classList.add('ok'); });
+    if(!ok) b.classList.add('bad');
+    $('#q-msg').textContent = ok ? 'Bravo ! 🎉' : 'Chưa đúng, đáp án đúng được tô xanh.';
+    $('#q-next').style.visibility='visible';
+  });
+  $('#q-next').onclick = ()=>{ Q.k++; renderQ(); };
+}
+
+/* ============ FORM ============ */
+// Dán link Web App của Google Apps Script vào đây (Bước 4 trong hướng dẫn)
+const SCRIPT_URL = '';
+$('#form').addEventListener('submit', async e=>{
+  e.preventDefault();
+  const msg = $('#ok-msg'), btn = e.target.querySelector('button[type=submit]');
+  if(!SCRIPT_URL){ msg.style.display='block'; return; }
+  const data = {name:$('#f-name').value, phone:$('#f-phone').value, course:$('#f-course').value, time:$('#f-time').value, note:$('#f-note').value};
+  btn.disabled = true; btn.textContent = 'Đang gửi…';
+  try{
+    await fetch(SCRIPT_URL, {method:'POST', mode:'no-cors', body:JSON.stringify(data)});
+    msg.textContent = 'Cảm ơn bạn! AMI sẽ liên hệ lại trong vòng 24 giờ.';
+    e.target.reset();
+  }catch(err){
+    msg.textContent = 'Chưa gửi được, bạn vui lòng nhắn Zalo cho AMI nhé.';
+  }
+  msg.style.display='block'; btn.disabled = false; btn.textContent = 'Gửi đăng ký';
+});
+
+/* ============ ROUTER ============ */
+function route(){
+  const h = (location.hash||'').replace('#','') || 'home';
+  let view = h, info = null;
+  if(/^(a1|a2|b1)-u\d+-l\d+$/.test(h)){ info = findLesson(h); view = info ? 'lesson' : 'tai-lieu'; }
+  if(!document.getElementById('v-'+view)) view = 'home';
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on', v.id==='v-'+view));
+  const navKey = view==='lesson' ? 'tai-lieu' : view;
+  document.querySelectorAll('[data-nav]').forEach(a=>a.classList.toggle('active', a.dataset.nav===navKey));
+  if(view==='tai-lieu') renderLib();
+  if(view==='lesson'){ curLvl = info.lvl; renderLesson(info); }
+  $('#menu').classList.remove('open');
+  window.scrollTo(0,0);
+}
+$('#burger').onclick = ()=>$('#menu').classList.toggle('open');
+window.addEventListener('hashchange', route);
+route();
+</script>
+</body>
+</html>
